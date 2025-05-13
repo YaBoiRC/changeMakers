@@ -5,6 +5,7 @@
 //  Created by Alumno on 12/05/25.
 //
 
+/*
 import Foundation
 import SwiftUI
 import MapKit
@@ -126,3 +127,4 @@ extension LiverpoolMapViewModel {
         locationManager.startUpdatingLocation()
     }
 }
+*/

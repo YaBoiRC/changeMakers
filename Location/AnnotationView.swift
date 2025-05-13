@@ -9,11 +9,17 @@ import SwiftUI
 
 struct AnnotationView: View {
     let item: AnnotationItem
+    
+    let LiverpoolPink = Color(
+        red:   208.0/255.0,
+        green:  51.0/255.0,
+        blue:  152.0/255.0
+    )
 
     var body: some View {
         VStack(spacing: 4) {
             Image(systemName: "mappin.circle.fill")
-                .foregroundColor(.red)
+                .foregroundColor(LiverpoolPink).opacity(0.9)
                 .font(.title)
                 .shadow(radius: 3)
             Text(item.name)
