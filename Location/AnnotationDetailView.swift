@@ -82,7 +82,7 @@ struct AnnotationDetailView: View {
                 .padding()
                 .background(LiverpoolPink)
                 .foregroundColor(.white)
-                .cornerRadius(10)
+                .cornerRadius(15)
 
                 Spacer()
             }

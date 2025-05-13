@@ -11,19 +11,23 @@ struct Intro2View: View {
     
     var body: some View {
         
-        VStack
+        VStack(spacing:24)
         {
             
-            Text("Primeros pasos:")
-                .padding(.vertical, 40)
-                .frame(minWidth: 0, maxWidth: .infinity)
-                .background(Color.liverpoolPink)
-                .ignoresSafeArea(.all)
-                .font(.largeTitle)
-                .fontWeight(.bold)
-                .foregroundStyle(.white)
-                .offset(y: -53.1)
-                //.shadow(radius: 10, y: 1)
+            ZStack {
+                LinearGradient(
+                    gradient: Gradient(colors: [Color.liverpoolPink, Color.liverpoolPink]),
+                    startPoint: .topLeading,
+                    endPoint: .bottomTrailing
+                )
+                .frame(height: 180)
+                .ignoresSafeArea()
+
+                Text("Primeros pasos")
+                    .font(.system(size: 28, weight: .bold, design: .rounded))
+                    .foregroundColor(.white)
+                    .shadow(color: Color.black.opacity(0.2), radius: 4, x: 0, y: 2)
+            }
             
             
                 
@@ -43,6 +47,8 @@ struct Intro2View: View {
  
                 .foregroundStyle(.black.opacity(0.65))
             
+            
+            
             Image("HappyMF")
                 .resizable()
                 .cornerRadius(25)
@@ -58,5 +64,5 @@ struct Intro2View: View {
 }
 
 #Preview {
-    HomeView()
+    Intro2View()
 }

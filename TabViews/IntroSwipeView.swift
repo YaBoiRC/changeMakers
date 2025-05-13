@@ -56,5 +56,5 @@ struct IntroSwipeView: View {
 }
 
 #Preview {
-    ContentView()
+    IntroSwipeView()
 }

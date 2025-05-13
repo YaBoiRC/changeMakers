@@ -15,32 +15,38 @@ struct Interest: Identifiable, Hashable {
 
 struct InterestButtonView: View {
     let interest: Interest
-    @Binding var isSelected: Bool
+        @Binding var isSelected: Bool
 
-    var body: some View {
-        VStack(spacing: 8) {
-            ZStack {
-                Circle()
-                    .strokeBorder(isSelected ? Color.liverpoolPink : Color.gray, lineWidth: 2)
-                    .background(Circle().fill(isSelected ? Color.liverpoolPink.opacity(0.2) : Color.clear))
-                    .frame(width: 80, height: 80)
-                
-                Image(systemName: interest.imageName)
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 40, height: 40)
-                    .padding(20)
-                    .foregroundColor(isSelected ? .liverpoolPink : .gray)
+        var body: some View {
+            VStack(spacing: 6) {
+                ZStack {
+                    Circle()
+                        .fill(isSelected ? Color.liverpoolPink.opacity(0.2) : Color(.systemGray6))
+                        .frame(width: 80, height: 80)
+                    Image(systemName: interest.imageName)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 34, height: 34)
+                        .foregroundColor(isSelected ? .liverpoolPink : .gray)
+                    
+                    if isSelected {
+                        Circle()
+                            .fill(Color.liverpoolPink)
+                            .frame(width: 18, height: 18)
+                            .overlay(
+                                Image(systemName: "checkmark")
+                                    .font(.system(size: 10))
+                                    .foregroundColor(.white)
+                            )
+                            .offset(x: 30, y: -30)
+                    }
+                }
+                Text(interest.name)
+                    .font(.footnote)
+                    .foregroundColor(.primary)
             }
-            
-            Text(interest.name)
-                .font(.subheadline)
-                .foregroundColor(.gray)
+            .onTapGesture { isSelected.toggle() }
         }
-        .onTapGesture {
-            isSelected.toggle()
-        }
-    }
 }
 
 struct InterestSelectionView: View {
@@ -62,9 +68,16 @@ struct InterestSelectionView: View {
     var body: some View {
         ZStack{
             VStack(spacing: 0) {
+                //InterestsHeader()
+                
                 LargeHeader(index: 1, textSub: "Que le interesa...", textHeadline: "comprar?")
                 VStack(alignment: .leading, spacing: 16) {
                     ScrollView {
+                        
+                        //Text("¿Qué le interesa comprar?").font(.title2).fontWeight(.bold).foregroundColor(.primary).padding(.top)
+                        
+                        Text("Escoge tus intereses").font(.title2).fontWeight(.bold).foregroundColor(.primary).padding(.top)
+                        
                         LazyVGrid(columns: [GridItem(.adaptive(minimum: 80), spacing: 20)], spacing: 20) {
                             ForEach(interests) { interest in
                                 InterestButtonView(
@@ -107,6 +120,30 @@ struct InterestSelectionView: View {
         }
         .navigationBarBackButtonHidden(true)
         .navigationBarItems(leading: CustomBackButton(arrowColor: Color.white))
+    }
+}
+
+struct InterestsHeader: View {
+    
+    var body: some View{
+        ZStack {
+            VStack {
+                HStack(spacing: 12) {
+                    Spacer()
+                    Text("Intereses")
+                        .font(.title2)
+                        .foregroundColor(Color.white)
+                        .bold()
+                    Spacer()
+                }
+                .padding(.horizontal, 16)
+                .padding(.top)
+
+                Spacer(minLength: 0)
+            }
+        }
+        .background(Color.liverpoolPink)
+        .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 12)
     }
 }
 

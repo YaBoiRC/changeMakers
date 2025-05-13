@@ -12,6 +12,7 @@
 		FBEC43802DD321BF00DC3801 /* NearbyMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBEC437F2DD321B800DC3801 /* NearbyMapView.swift */; };
 		FBEC43822DD321D400DC3801 /* SucursalRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBEC43812DD321CE00DC3801 /* SucursalRow.swift */; };
 		FBEC438A2DD335AE00DC3801 /* RegionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBEC43892DD335A600DC3801 /* RegionViewModel.swift */; };
+		FBEC44432DD3480800DC3801 /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBEC44422DD347FD00DC3801 /* RegistrationView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,7 @@
 		FBEC437F2DD321B800DC3801 /* NearbyMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyMapView.swift; sourceTree = "<group>"; };
 		FBEC43812DD321CE00DC3801 /* SucursalRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SucursalRow.swift; sourceTree = "<group>"; };
 		FBEC43892DD335A600DC3801 /* RegionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionViewModel.swift; sourceTree = "<group>"; };
+		FBEC44422DD347FD00DC3801 /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -131,6 +133,7 @@
 		397284EA2DCF04B800627270 = {
 			isa = PBXGroup;
 			children = (
+				FBEC44422DD347FD00DC3801 /* RegistrationView.swift */,
 				3972896C2DD33CAB00627270 /* ColorPalettes.swift */,
 				3972896A2DD33C3A00627270 /* ReturnButton.swift */,
 				FBEC43892DD335A600DC3801 /* RegionViewModel.swift */,
@@ -309,6 +312,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FBEC44432DD3480800DC3801 /* RegistrationView.swift in Sources */,
 				FBEC438A2DD335AE00DC3801 /* RegionViewModel.swift in Sources */,
 				FBEC43802DD321BF00DC3801 /* NearbyMapView.swift in Sources */,
 				3972896D2DD33CAB00627270 /* ColorPalettes.swift in Sources */,
@@ -478,8 +482,10 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = changeMakers/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "$(MARKETING_VERSION)";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Nuestra nueva funcionalidad diseñada sólo para ti requiere esta función";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Nuestra app requiere permisos de localización";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Se requiere acceso a la galería para seleccionar una foto de perfil.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -511,8 +517,10 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = changeMakers/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "$(MARKETING_VERSION)";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Nuestra nueva funcionalidad diseñada sólo para ti requiere esta función";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Nuestra app requiere permisos de localización";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Se requiere acceso a la galería para seleccionar una foto de perfil.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
