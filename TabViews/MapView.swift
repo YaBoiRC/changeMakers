@@ -22,17 +22,17 @@ struct MapView: View {
     @State private var selectedAnnotation: AnnotationItem?
     @State private var isSheetPresented = false
     @State private var showFullMap = false
-
+    
     var body: some View {
         VStack {
             MapHeader()
-
+            
             NavigationView {
                 ScrollView(showsIndicators: false) {
                     VStack(spacing: 20) {
                         Text("Liverpool cerca de ti")
-                            .font(.title).bold().padding(.horizontal)
-
+                            .font(.title).bold().padding(.top).padding(.bottom, 5).foregroundStyle(Color.liverpoolPink)
+                        
                         NearbyMapView(
                             viewModel: regionVM,
                             showFullMap: $showFullMap,
@@ -44,8 +44,8 @@ struct MapView: View {
                                 }
                             }
                         )
-
-
+                        
+                        
                         if !nearbyAnnotations.isEmpty {
                             Text("Sucursales cercanas")
                                 .font(.headline).padding(.horizontal)
@@ -73,24 +73,30 @@ struct MapView: View {
                     .presentationDragIndicator(.visible)
             }
         }
+        
         .fullScreenCover(isPresented: $showFullMap) {
             FullScreenMapView(
                 viewModel: regionVM,
                 annotations: nearbyAnnotations,
-                onClose: { showFullMap = false }
+                onClose: { showFullMap = false },
+                onTap: { _ in },
+                onRefresh: {}
             )
-            
         }
+        
+        
     }
-
+    
+    
     private func fetchNearby(at coord: CLLocationCoordinate2D) {
         showNearby(category: "Liverpool", at: coord) { results in
             nearbyAnnotations = results
         }
     }
+}
 
     
-}
+
 
 // Componente HeaderView
 struct MapHeader: View {
