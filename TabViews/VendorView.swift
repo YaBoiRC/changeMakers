@@ -11,29 +11,32 @@ import SwiftUI
 struct VendorView: View {
     @State private var showVendorBanner = false
     @State private var currentCustomer: Customer? = nil
-    private let vendorTimer = Timer.publish(every: 5, on: .main, in: .common).autoconnect()
+    @State private var isShowingDetail = false
+
+    private let vendorTimer = Timer.publish(every: 3, on: .main, in: .common).autoconnect()
     private let incrementTimer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
-    
-    
-    // Sample waiting list
+
     @State private var waitingList: [Customer] = [
         Customer(name: "Ana Lorena Juárez", imageName: "Lore", interests: ["Ropa", "Zapatos"], atendido: false),
         Customer(name: "Daniel Mansur", imageName: "Daniel", interests: ["Electrónicos"], atendido: true),
-        Customer(name: "Mario Rodríguez", imageName: "Marie", interests: ["Belleza", "Cocina", "Juguetes"], atendido: true),
+        Customer(name: "Mario Rodríguez", imageName: "Marie", interests: ["Belleza", "Cocina", "Juguetes"], atendido: false),
         Customer(name: "Raymond Lee", imageName: "Ray", interests: ["Ropa", "Zapatos"], atendido: true),
         Customer(name: "Dana Zertuche", imageName: "Dana", interests: ["Belleza", "Cocina", "Juguetes"], atendido: false),
         Customer(name: "Aylen", imageName: "Aylen", interests: ["Electrónicos"]),
         Customer(name: "Samuel Flores", imageName: "Samuel", interests: ["Belleza", "Cocina", "Juguetes"], atendido: false),
         Customer(name: "Roberto Chapa", imageName: "Roberto", interests: ["Electrónicos"], atendido: true)
         
-    ]
-    
+    ].map { cust in
+        var c = cust
+        c.time_on_Store = Int.random(in: 0...180)
+        return c
+    }
+
     var body: some View {
-        NavigationView {
+        NavigationStack {
             ZStack {
                 List {
-                    ForEach(waitingList.indices, id: \.self) { idx in
-                        let customer = waitingList[idx]
+                    ForEach($waitingList) { $customer in
                         HStack {
                             Image(customer.imageName)
                                 .resizable()
@@ -42,22 +45,23 @@ struct VendorView: View {
                                 .clipShape(Circle())
                                 .padding(5)
                             VStack(alignment: .leading) {
-                                Text(customer.name).font(.title3).bold()
+                                Text(customer.name).font(.title3).bold().foregroundStyle(Color.liverpoolPink)
                                 Text("Esperando: \(customer.time_on_Store)s")
                                     .font(.caption)
                                     .foregroundColor(.gray)
                                 Text(customer.interests.joined(separator: ", "))
                                     .font(.subheadline)
-                                    .foregroundColor(.gray)
+                                    .foregroundColor(.black)
                             }
                         }
                         .opacity(customer.atendido ? 0.5 : 1.0)
                         .onTapGesture {
-                            waitingList[idx].atendido = true
+                            customer.atendido = true
                         }
                     }
                 }
-                
+
+                // Banner de notificación
                 if let cust = currentCustomer, showVendorBanner {
                     VStack {
                         NotificationBanner(
@@ -67,8 +71,11 @@ struct VendorView: View {
                         )
                         .onTapGesture {
                             showVendorBanner = false
+                            
                             if let idx = waitingList.firstIndex(where: { $0.id == cust.id }) {
-                                waitingList[idx].atendido = true
+                                // Pasamos binding al detalle
+                                currentCustomer = waitingList[idx]
+                                isShowingDetail = true
                             }
                         }
                         Spacer()
@@ -77,8 +84,11 @@ struct VendorView: View {
                     .animation(.easeInOut, value: showVendorBanner)
                 }
             }
+            // Trigger del banner
             .onReceive(vendorTimer) { _ in
-                guard !waitingList.isEmpty else { return }
+                guard !isShowingDetail,
+                      !waitingList.filter({ !$0.atendido }).isEmpty
+                else { return }
                 currentCustomer = waitingList.filter { !$0.atendido }.randomElement()
                 withAnimation { showVendorBanner = true }
                 DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
@@ -90,18 +100,16 @@ struct VendorView: View {
                     waitingList[idx].time_on_Store += 1
                 }
             }
+            .navigationDestination(isPresented: $isShowingDetail) {
+                if let custIndex = waitingList.firstIndex(where: { $0.id == currentCustomer?.id }) {
+                    CustomerDetailView(customer: $waitingList[custIndex])
+                }
+            }
+            
         }
     }
 }
 
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        TabView {
-            HomeView()
-                .tabItem { Label("Home", systemImage: "house") }
-            VendorView()
-                .tabItem { Label("Vendedor", systemImage: "person.2") }
-        }
-    }
+#Preview {
+    VendorView()
 }
