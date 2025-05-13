@@ -15,6 +15,13 @@ struct TermsAndConditionsView: View
     @State var backArrow : Bool = false
     @Environment(\.presentationMode) var presentation
     
+    let LiverpoolPink = Color(
+        red:   208.0/255.0,
+        green:  51.0/255.0,
+        blue:  152.0/255.0
+    )
+    
+    
     var body: some View
     {
         VStack(spacing: 0) {
@@ -34,7 +41,7 @@ struct TermsAndConditionsView: View
                 Text("Liverpool Here                   ")
                     .font(.largeTitle)
                     .fontWeight(.bold)
-                    .multilineTextAlignment(.leading).foregroundColor(Color.liverpoolPink).padding(.bottom)
+                    .multilineTextAlignment(.leading).foregroundColor(LiverpoolPink).padding(.bottom)
                 Spacer()
                 Text("""
             Ahora puedes activar la **Vinculación de Tarjetas**, una funcionalidad que te permite asociar tu tarjeta de crédito con tu cuenta de cheques. 

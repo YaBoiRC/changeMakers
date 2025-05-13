@@ -1,14 +1,14 @@
 //
-//  HomeView.swift
+//  WorkerSimView.swift
 //  changeMakers
 //
-//  Created by Alumno on 12/05/25.
+//  Created by Alumno on 13/05/25.
 //
 
 import SwiftUI
 
-struct HomeView: View
-{
+struct WorkerSimView: View {
+    
     var bannerActive: Bool = true
     @State var index = 1
     @State var backArrow : Bool = false
@@ -23,12 +23,23 @@ struct HomeView: View
         blue:  152.0/255.0
     )
     
-    var body: some View
-    {
+    var body: some View {
+        
+        
         NavigationView{
             VStack(spacing: 0)
             {
                 HeaderView(index: index, name: "Juanito", backArrow: false, sendDashboard: false)
+                
+                
+                
+                
+                Text("Hola")
+                
+                
+                
+                Spacer()
+                
                 
                 
                 Button("Boton A Intro!",
@@ -44,9 +55,11 @@ struct HomeView: View
                 
             }
         }
+        
+        
     }
 }
 
 #Preview {
-    HomeView()
+    WorkerSimView()
 }

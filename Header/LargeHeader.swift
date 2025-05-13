@@ -15,6 +15,12 @@ struct LargeHeader: View {
     @Environment(\.presentationMode) var presentation
     @State var myView: AnyView = AnyView(HomeView())
     
+    let LiverpoolPink = Color(
+        red:   208.0/255.0,
+        green:  51.0/255.0,
+        blue:  152.0/255.0
+    )
+    
     var body: some View{
         ZStack {
             ZStack{
@@ -47,7 +53,7 @@ struct LargeHeader: View {
                 }
                 .padding(.top)
             }
-            .background(Color.liverpoolPink)
+            .background(LiverpoolPink)
             .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 7)
             .overlay
             {
