@@ -15,4 +15,6 @@ struct Customer: Identifiable {
     let name: String
     let imageName: String
     let interests: [String]
+    var atendido: Bool = false
+    var time_on_Store: Int = 0
 }
