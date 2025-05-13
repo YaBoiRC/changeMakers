@@ -30,7 +30,7 @@ struct splashScreen: View {
                 ZStack{
                     
                     HStack {
-                        Text("urbanite")
+                        Text("Liverpool Pocket")
                             .font(.title)
                             .fontWeight(.bold)
                         Image(systemName: "AppIcon")

@@ -60,7 +60,7 @@ struct HeaderView: View {
                         else if (self.index == 3)
                         {
                             //Savings
-                            Text("Savings").foregroundColor(Color.white)
+                            Text("Terms & Conditions").foregroundColor(Color.white)
                                 .font(.title2).bold()
                                 .offset(y: -5)
                         }
