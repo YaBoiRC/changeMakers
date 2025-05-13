@@ -10,12 +10,57 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+            // Iniciamos con la struct de splashScreen
+            splashScreen()
         }
-        .padding()
+        
+    }
+}
+
+// Pantalla Splash que aparece para que la app tenga momento para cargarse
+struct splashScreen: View {
+    @State private var isActive = false
+    
+    var body: some View {
+        ZStack {
+            // Cuando termine, activa el Tabview inicial
+            if isActive {
+                Tabview().navigationBarBackButtonHidden(true)
+            } else {
+                ZStack{
+                    
+                    HStack {
+                        Text("urbanite")
+                            .font(.title)
+                            .fontWeight(.bold)
+                        Image(systemName: "AppIcon")
+                    }
+                    .onAppear {
+                        // Dispatch para que tenga un temporizador
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                            withAnimation {
+                                isActive = true
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .edgesIgnoringSafeArea(.all)
+    }
+}
+
+// TabView para que se pueda hacer todo de la app, Home, News, Forums, Market, User, etc.
+struct Tabview: View {
+    var body: some View {
+        TabView {
+            HomeView()
+                .tabItem {
+                    Image(systemName: "house.fill")
+                    Text("Home")
+                }
+            
+        }
     }
 }
 

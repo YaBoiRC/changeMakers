@@ -45,6 +45,21 @@
 			path = changeMakersUITests;
 			sourceTree = "<group>";
 		};
+		FBEC40F32DD2BEBE00DC3801 /* Location */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Location;
+			sourceTree = "<group>";
+		};
+		FBEC41292DD2C56800DC3801 /* Header */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Header;
+			sourceTree = "<group>";
+		};
+		FBEC41322DD2C66800DC3801 /* TabViews */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = TabViews;
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +90,9 @@
 		397284EA2DCF04B800627270 = {
 			isa = PBXGroup;
 			children = (
+				FBEC41322DD2C66800DC3801 /* TabViews */,
+				FBEC41292DD2C56800DC3801 /* Header */,
+				FBEC40F32DD2BEBE00DC3801 /* Location */,
 				397284F52DCF04B800627270 /* changeMakers */,
 				397285062DCF04BA00627270 /* changeMakersTests */,
 				397285102DCF04BA00627270 /* changeMakersUITests */,
@@ -109,6 +127,9 @@
 			);
 			fileSystemSynchronizedGroups = (
 				397284F52DCF04B800627270 /* changeMakers */,
+				FBEC40F32DD2BEBE00DC3801 /* Location */,
+				FBEC41292DD2C56800DC3801 /* Header */,
+				FBEC41322DD2C66800DC3801 /* TabViews */,
 			);
 			name = changeMakers;
 			packageProductDependencies = (
