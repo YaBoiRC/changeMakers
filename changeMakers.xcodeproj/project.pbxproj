@@ -73,6 +73,11 @@
 			path = changeMakersUITests;
 			sourceTree = "<group>";
 		};
+		FB2F3C1F2DD3D9F10046D48B /* WishlistThings */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = WishlistThings;
+			sourceTree = "<group>";
+		};
 		FBEC40F32DD2BEBE00DC3801 /* Location */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = Location;
@@ -133,6 +138,7 @@
 		397284EA2DCF04B800627270 = {
 			isa = PBXGroup;
 			children = (
+				FB2F3C1F2DD3D9F10046D48B /* WishlistThings */,
 				FBEC44422DD347FD00DC3801 /* RegistrationView.swift */,
 				3972896C2DD33CAB00627270 /* ColorPalettes.swift */,
 				3972896A2DD33C3A00627270 /* ReturnButton.swift */,
@@ -179,6 +185,7 @@
 			);
 			fileSystemSynchronizedGroups = (
 				397284F52DCF04B800627270 /* changeMakers */,
+				FB2F3C1F2DD3D9F10046D48B /* WishlistThings */,
 				FBEC40F32DD2BEBE00DC3801 /* Location */,
 				FBEC41292DD2C56800DC3801 /* Header */,
 				FBEC41322DD2C66800DC3801 /* TabViews */,
