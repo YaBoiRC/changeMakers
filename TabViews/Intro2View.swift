@@ -34,9 +34,9 @@ struct Intro2View: View {
             
             
             Text("¡Crea tu perfil de recomendaciones!")
-                .multilineTextAlignment(.center)
-                .font(.custom("AvenirNext-Bold", size: 20))
-                .padding(.top, 20)
+                .font(.system(size: 22, weight: .bold, design: .rounded))
+                .multilineTextAlignment(.leading)
+                .padding(.top, 20).foregroundStyle(Color.black).padding(.horizontal)
             
             
             Text("\n¡Tómate una selfie de tu rostro y automáticamente se importarán tus productos deseados de tu wishlist para personalizar tu experiencia!")

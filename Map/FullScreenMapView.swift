@@ -8,25 +8,19 @@
 import MapKit
 import SwiftUI
 
-
 struct FullScreenMapView: View {
     @ObservedObject var viewModel: RegionViewModel
     let annotations: [AnnotationItem]
     let onClose: () -> Void
+
     @State private var nearbyAnnotations: [AnnotationItem] = []
+    @State private var initialRegionSet = false
 
     @StateObject private var locationManager = CustomLocationManager()
-    @StateObject private var regionVM = RegionViewModel(
-        initial: MKCoordinateRegion(
-            center: CLLocationCoordinate2D(latitude: 25.6866, longitude: -100.3161),
-            span: MKCoordinateSpan(latitudeDelta: 0.2, longitudeDelta: 0.2)
-        )
-    )
-    @State private var initialRegionSet = false
-    @State private var selectedAnnotation: AnnotationItem?
-    @State private var isSheetPresented = false
-    @State private var showFullMap = false
-    
+
+    let onTap: (AnnotationItem) -> Void
+    let onRefresh: () -> Void
+
     var body: some View {
         ZStack(alignment: .topTrailing) {
             Map(
@@ -37,25 +31,32 @@ struct FullScreenMapView: View {
             ) { item in
                 MapAnnotation(coordinate: item.coordinate) {
                     AnnotationView(item: item)
-                        .onTapGesture { openInAppleMaps(item: item) }
+                        .onTapGesture { onTap(item) }
                 }
             }
             .ignoresSafeArea()
 
+            // Botón de cerrar
             Button(action: onClose) {
                 Image(systemName: "xmark.circle.fill")
-                    .font(.largeTitle).padding()
-                    .background(.white.opacity(0.7)).clipShape(Circle())
+                    .font(.system(size: 28, weight: .bold))
+                    .foregroundColor(.gray)
+                    .padding(12)
+                    .background(Color.white.opacity(0.8))
+                    .clipShape(Circle())
+                    .shadow(radius: 4)
             }
-            .padding()
-            .onReceive(locationManager.$location) { loc in
-                guard let loc = loc, !initialRegionSet else { return }
-                regionVM.region.center = loc.coordinate
-                initialRegionSet = true
-                fetchNearby(at: loc.coordinate)}
+            .padding(.top, 50)
+            .padding(.trailing, 16)
         }
-        
+        .onReceive(locationManager.$location) { loc in
+            guard let loc = loc, !initialRegionSet else { return }
+            viewModel.region.center = loc.coordinate
+            initialRegionSet = true
+            fetchNearby(at: loc.coordinate)
+        }
     }
+
     func fetchNearby(at coord: CLLocationCoordinate2D) {
         showNearby(category: "Liverpool", at: coord) { results in
             nearbyAnnotations = results
