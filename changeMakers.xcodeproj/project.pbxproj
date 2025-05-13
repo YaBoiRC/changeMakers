@@ -92,11 +92,6 @@
 			path = NavigationalButton;
 			sourceTree = "<group>";
 		};
-		FBEC426B2DD2F64A00DC3801 /* Liverpool */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = Liverpool;
-			sourceTree = "<group>";
-		};
 		FBEC43882DD32A5300DC3801 /* Map */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = Map;
@@ -136,7 +131,6 @@
 				FBEC43882DD32A5300DC3801 /* Map */,
 				FBEC43812DD321CE00DC3801 /* SucursalRow.swift */,
 				FBEC437F2DD321B800DC3801 /* NearbyMapView.swift */,
-				FBEC426B2DD2F64A00DC3801 /* Liverpool */,
 				FBEC41682DD2CB1000DC3801 /* NavigationalButton */,
 				FBEC41672DD2CAE000DC3801 /* Screens */,
 				FBEC41322DD2C66800DC3801 /* TabViews */,
@@ -181,7 +175,6 @@
 				FBEC41322DD2C66800DC3801 /* TabViews */,
 				FBEC41672DD2CAE000DC3801 /* Screens */,
 				FBEC41682DD2CB1000DC3801 /* NavigationalButton */,
-				FBEC426B2DD2F64A00DC3801 /* Liverpool */,
 				FBEC43882DD32A5300DC3801 /* Map */,
 			);
 			name = changeMakers;
