@@ -64,113 +64,146 @@ struct InterestSelectionView: View {
     ]
     
     @State var selectedInterests: Set<Interest> = []
-
+    
     var body: some View {
-        ZStack{
+        ZStack(alignment: .bottom) {
             VStack(spacing: 0) {
-                //InterestsHeader()
+                InterestsHeader()
                 
-                LargeHeader(index: 1, textSub: "Que le interesa...", textHeadline: "comprar?")
-                VStack(alignment: .leading, spacing: 16) {
-                    ScrollView {
-                        
-                        //Text("¿Qué le interesa comprar?").font(.title2).fontWeight(.bold).foregroundColor(.primary).padding(.top)
-                        
-                        Text("Escoge tus intereses").font(.title2).fontWeight(.bold).foregroundColor(.primary).padding(.top, 30)
-                        
-                        LazyVGrid(columns: [GridItem(.adaptive(minimum: 80), spacing: 20)], spacing: 20) {
-                            ForEach(interests) { interest in
-                                InterestButtonView(
-                                    interest: interest,
-                                    isSelected: Binding(
-                                        get: { selectedInterests.contains(interest) },
-                                        set: { isSelected in
-                                            if isSelected {
-                                                selectedInterests.insert(interest)
-                                            } else {
-                                                selectedInterests.remove(interest)
-                                            }
+                ScrollView {
+                    Text("¿Qué te gustaría comprar?")
+                        .font(.title2)
+                        .fontWeight(.bold)
+                        .foregroundColor(.primary)
+                        .padding(.top, 30)
+                    
+                    LazyVGrid(columns: [GridItem(.adaptive(minimum: 80), spacing: 20)], spacing: 20) {
+                        ForEach(interests) { interest in
+                            InterestButtonView(
+                                interest: interest,
+                                isSelected: Binding(
+                                    get: { selectedInterests.contains(interest) },
+                                    set: { isSelected in
+                                        if isSelected {
+                                            selectedInterests.insert(interest)
+                                        } else {
+                                            selectedInterests.remove(interest)
                                         }
-                                    )
+                                    }
                                 )
-                            }
+                            )
                         }
-                        .padding()
                     }
-                    Spacer()
-                    }
-                    .padding(.bottom, 20)
+                    .padding()
                 }
-            VStack {
+                
                 Spacer()
-                HStack {
-                    Spacer()
-                    
-                    VStack()
-                    {
-                        NavigatingButtonView(
-                            style: 0,
-                            text: "Continuar",
-                            color: selectedInterests.count > 3 ? .liverpoolPink : .gray,
-                            destination: TermsAndConditionsView(),
-                            hasNavigation: selectedInterests.count > 3,
-                            foregroundCol: .white
-                        )
-                        .disabled(selectedInterests.count <= 3)
-                        
-                        NavigatingButtonView(
-                            style: 3,
-                            text: "skip",
-                            color: .gray.opacity(0),
-                            destination: TermsAndConditionsView(),
-                            hasNavigation: true,
-                            foregroundCol: Color.gray
-                        )
-                        
-                        
-                        //funny
-//                        Text("|").rotationEffect(.degrees(90)).offset(x:20 ,y: -15).font(.largeTitle).foregroundColor(Color.gray).padding(.all, -20).fontWidth(.condensed)
-                        
-                        
-                    }
-                    
-                    
-                    
-                    
-                    
-                    Spacer()
-                }
-                .padding(.bottom, -20)
             }
+            
+            // Botones al fondo visibles
+            VStack(spacing: 12) {
+                NavigatingButtonView(
+                    style: 0,
+                    text: "Continuar",
+                    color: selectedInterests.count > 3 ? .liverpoolPink : .gray,
+                    destination: TermsAndConditionsView(),
+                    hasNavigation: selectedInterests.count > 3,
+                    foregroundCol: .white
+                )
+                .disabled(selectedInterests.count <= 3)
+                
+                NavigatingButtonView(
+                    style: 3,
+                    text: "Saltar",
+                    color: .clear,
+                    destination: TermsAndConditionsView(),
+                    hasNavigation: true,
+                    foregroundCol: Color.gray
+                )
+            }
+            .padding(.bottom, 30) // Asegura espacio con la parte inferior
         }
         .navigationBarBackButtonHidden(true)
+        .navigationBarHidden(true)
         .navigationBarItems(leading: CustomBackButton(arrowColor: Color.white))
     }
-}
-
-struct InterestsHeader: View {
     
-    var body: some View{
-        ZStack {
-            VStack {
-                HStack(spacing: 12) {
-                    Spacer()
-                    Text("Intereses")
-                        .font(.title2)
-                        .foregroundColor(Color.white)
-                        .bold()
-                    Spacer()
+    
+    /*
+     struct InterestsHeader: View {
+     
+     var body: some View{
+     ZStack {
+     VStack {
+     HStack(spacing: 12) {
+     Spacer()
+     Text("Intereses")
+     .font(.title2)
+     .foregroundColor(Color.white)
+     .bold()
+     Spacer()
+     }
+     .padding(.horizontal, 16)
+     .padding(.top)
+     
+     Spacer(minLength: 0)
+     }
+     }
+     .background(Color.liverpoolPink)
+     .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 12)
+     }
+     }*/
+    
+    struct InterestsHeader: View {
+        
+        @Environment(\.dismiss) private var dismiss
+        
+        var body: some View{
+            ZStack {
+                VStack {
+                    HStack(spacing: 12) {
+                        
+                        
+                        Button(action: {
+                            dismiss()
+                        }) {
+                            Image(systemName: "arrow.left")
+                                .foregroundColor(.white)
+                                .font(.title2)
+                                .fontWeight(.bold)
+                        }
+                        
+                        
+                        
+                        
+                        Spacer()
+                        
+                        
+                        Text("Intereses")
+                            .foregroundStyle(Color.white)
+                            .fontWeight(.bold)
+                            .font(.title2)
+                            .padding(.leading, -37)
+                        
+                        
+                        Spacer()
+                        
+                        
+                    }
+                    .padding(.horizontal, 16)
+                    .padding(.top)
+                    
+                    Spacer(minLength: 0)
                 }
-                .padding(.horizontal, 16)
-                .padding(.top)
-
-                Spacer(minLength: 0)
+                
+                Spacer()
             }
+            .background(Color.liverpoolPink)
+            .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 12)
         }
-        .background(Color.liverpoolPink)
-        .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 12)
     }
 }
+
 
 #Preview {
     NavigationView{
