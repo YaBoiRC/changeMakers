@@ -9,11 +9,6 @@ import SwiftUI
 
 struct TermsAndConditionsView: View
 {
-    let LiverpoolPink = Color(
-        red:   208.0/255.0,
-        green:  51.0/255.0,
-        blue:  152.0/255.0
-    )
     @State private var conditions = false
     @State private var notifications = false
     @State var index = 3
@@ -39,7 +34,7 @@ struct TermsAndConditionsView: View
                 Text("Liverpool Here                   ")
                     .font(.largeTitle)
                     .fontWeight(.bold)
-                    .multilineTextAlignment(.leading).foregroundColor(LiverpoolPink).padding(.bottom)
+                    .multilineTextAlignment(.leading).foregroundColor(Color.liverpoolPink).padding(.bottom)
                 Spacer()
                 Text("""
             Ahora puedes activar la **Vinculación de Tarjetas**, una funcionalidad que te permite asociar tu tarjeta de crédito con tu cuenta de cheques. 
@@ -80,12 +75,12 @@ struct TermsAndConditionsView: View
                     
                     if (conditions == true && notifications == true)
                     {
-                        NavigatingButtonView(style: 0, text: "Aceptar", color: LiverpoolPink, destination: HomeView(), hasNavigation: true)
+                        NavigatingButtonView(style: 0, text: "Aceptar", color: Color.liverpoolPink, destination: InterestSelectionView(), hasNavigation: true)
                     }
                     else
                     {
                         
-                        NavigatingButtonView(style: 0, text: "Aceptar", color: Color.gray, destination: HomeView(), hasNavigation: false)
+                        NavigatingButtonView(style: 0, text: "Aceptar", color: Color.gray, destination: InterestSelectionView(), hasNavigation: false)
                         
                     }
                     
@@ -115,5 +110,7 @@ struct CheckboxToggleStyle: ToggleStyle {
 }
 
 #Preview {
-    TermsAndConditionsView()
+    NavigationView {
+        TermsAndConditionsView()
+    }
 }
