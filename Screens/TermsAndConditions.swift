@@ -24,17 +24,68 @@ struct TermsAndConditionsView: View
             ScrollView {
                 Spacer()
                 Text("""
-            Ahora puedes activar la **Vinculación de Tarjetas**, una funcionalidad que te permite asociar tu tarjeta de crédito con tu cuenta de cheques. 
             
-            Cada vez que realices un pago con tu tarjeta de crédito, el monto se moverá automáticamente a un apartado especial dentro de tu cuenta de debito, mientras se cuente con el saldo suficiente para hacerlo.
+            **Términos y Condiciones de Uso de la Aplicación**
             
-            Es importante aclarar que esta funcionalidad **no hace un pago automático a tu tarjeta de creadito** y tampoco genera cargos directos en tu cuenta de cheques. Tu dinero sigue disponible en todo momento, pero ahora puedes administrar mejor lo que destinas al pago de tu crédito.
+            Última actualización: 13 Mayo 2025
+            Bienvenido/a a nuestra aplicación ("la App"), desarrollada como un prototipo para mejorar la experiencia de compra dentro de tiendas Liverpool. Al utilizar esta App, aceptas los siguientes Términos y Condiciones. Si no estás de acuerdo con ellos, por favor no utilices la aplicación.
             
-            Si el saldo en tu cuenta no es suficiente para apartar el monto completo, recibirás una notificación con la cantidad que no pudo trasladarse. Sin embargo, esto **no afectará tus pagos ni el uso de tu tarjeta de crédito.**
+            **1. Finalidad de la Aplicación**
             
-            **Puedes activar o desactivar esta herramienta en cualquier momento desde los ajustes del apartado en la app.**
+            La App tiene como objetivo ofrecer a los usuarios una experiencia de compra personalizada dentro de las tiendas Liverpool. Para lograrlo, la App puede:
+            Notificar a los empleados de la tienda cuando un usuario ingrese al establecimiento.
+            Identificar las áreas o departamentos donde hay artículos de interés para el usuario.
+            Permitir que el personal pueda asistir de manera proactiva al usuario durante su visita.
             
-            Evita sorpresas al final del mes, organiza tu crédito de forma sencilla y toma el control de tus finanzas sin esfuerzo.
+            **2. Recopilación y Uso de Información Personal**
+            
+            a. Lista de Deseos y Preferencias
+            
+            El usuario podrá ingresar manualmente sus preferencias o vincular su wishlist existente en Liverpool. Esta información se utilizará únicamente para proporcionar recomendaciones personalizadas y asistencia en tienda.
+            
+            b. Acceso y Uso de Ubicación
+            
+            La App podrá acceder a la ubicación del dispositivo para detectar la entrada del usuario a la tienda o su proximidad a departamentos específicos.
+            
+            El usuario podrá elegir entre las siguientes opciones de privacidad:
+            
+            Compartir ubicación solo mientras usa la App.
+            
+            Compartir ubicación en todo momento (en segundo plano).
+            
+            El tipo de acceso será configurable desde los ajustes del dispositivo y de la App.
+            
+            c. Uso de Imagen Facial (Foto)
+            
+            El usuario podrá ingresar una fotografía de su rostro de forma voluntaria. Esta imagen se usará exclusivamente para que el personal de Liverpool pueda reconocer al usuario y ofrecerle asistencia personalizada durante su visita.
+            
+            La fotografía no será compartida con terceros ni usada para fines distintos a los aquí descritos.
+            
+            **3. Notificaciones al Personal de Liverpool**
+            
+            Cuando el usuario entre en la tienda o se aproxime a un área relevante para sus intereses, la App podrá enviar una notificación al personal autorizado de Liverpool. Esta notificación podrá incluir:
+            
+            Nombre o alias del usuario.
+            
+            Preferencias o productos de interés.
+            
+            Fotografía ingresada por el usuario (si aplica).
+            
+            **4. Privacidad y Protección de Datos**
+            
+            Nos comprometemos a proteger tu información personal. Todos los datos recopilados se almacenan de forma segura y se utilizan únicamente para los fines aquí descritos.
+            El usuario puede en cualquier momento solicitar la eliminación de sus datos desde la configuración de la App o contactando al equipo de soporte.
+            
+            **5. Limitaciones de Uso**
+            
+            La App está diseñada como un prototipo en fase de prueba. Por tanto:
+            Su funcionalidad puede cambiar sin previo aviso.
+            Podrían ocurrir fallos técnicos o imprecisiones.
+            No se garantiza la disponibilidad del servicio en todas las tiendas Liverpool.
+            
+            **6. Modificaciones a los Términos**
+            
+            Nos reservamos el derecho de actualizar estos Términos y Condiciones en cualquier momento. Recomendamos revisar esta sección periódicamente para mantenerse informado sobre los cambios.
             
             """)
                 .padding([.leading, .bottom, .trailing], 20)
@@ -62,12 +113,12 @@ struct TermsAndConditionsView: View
                     
                     if (conditions == true && notifications == true)
                     {
-                        NavigatingButtonView(style: 0, text: "Aceptar", color: Color.liverpoolPink, destination: InterestSelectionView(), hasNavigation: true)
+                        NavigatingButtonView(style: 0, text: "Aceptar", color: Color.liverpoolPink, destination: InterestSelectionView(), hasNavigation: true, foregroundCol: Color.white)
                     }
                     else
                     {
                         
-                        NavigatingButtonView(style: 0, text: "Aceptar", color: Color.gray, destination: InterestSelectionView(), hasNavigation: false)
+                        NavigatingButtonView(style: 0, text: "Aceptar", color: Color.gray, destination: InterestSelectionView(), hasNavigation: false, foregroundCol: Color.white)
                         
                     }
                     

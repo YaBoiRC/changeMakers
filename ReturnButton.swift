@@ -19,7 +19,7 @@ struct CustomBackButton: View {
                 presentationMode.wrappedValue.dismiss()
             }
         } label: {
-            Image(systemName: "chevron.left")
+            Image(systemName: "arrow.left")
                 .foregroundColor(arrowColor)
                 .bold()
                 .font(.title3)
@@ -33,5 +33,12 @@ struct CustomBackButton: View {
                 animate = true
             }
         }
+    }
+}
+
+
+#Preview {
+    NavigationView{
+        CustomBackButton(arrowColor: Color.liverpoolPink)
     }
 }

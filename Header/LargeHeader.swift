@@ -17,7 +17,7 @@ struct LargeHeader: View {
     @State var textSub: String
     @State var textHeadline: String
     @State var subFontSize: CGFloat = 20
-    @State var headlineFontSize: CGFloat = 34
+    @State var headlineFontSize: CGFloat = 40
 
     
     var body: some View{
@@ -32,15 +32,15 @@ struct LargeHeader: View {
                             HStack {
                                 VStack(alignment: .leading) {
                                     Text(textSub)
-                                        .font(.system(size: subFontSize, design: .serif))
+                                        .font(.system(size: subFontSize))
                                         .foregroundColor(Color.white)
                                     Text(textHeadline)
-                                        .font(.system(size: headlineFontSize, design: .serif))
+                                        .font(.system(size: headlineFontSize))
                                         .foregroundColor(Color.white)
                                         .bold()
                                 }
                                 .opacity(showText ? 1 : 0)
-                                .offset(y: showText ? 0 : 125)
+                                .offset(y: showText ? -9 : 125)
                                 .animation(.easeOut(duration: 1.0), value: showText)
                                 Spacer()
                             }
@@ -53,7 +53,7 @@ struct LargeHeader: View {
                 .padding(.top)
             }
             .background(Color.liverpoolPink)
-            .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 7)
+            .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 12)
             .overlay
             {
 

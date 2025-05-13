@@ -76,7 +76,7 @@ struct InterestSelectionView: View {
                         
                         //Text("¿Qué le interesa comprar?").font(.title2).fontWeight(.bold).foregroundColor(.primary).padding(.top)
                         
-                        Text("Escoge tus intereses").font(.title2).fontWeight(.bold).foregroundColor(.primary).padding(.top)
+                        Text("Escoge tus intereses").font(.title2).fontWeight(.bold).foregroundColor(.primary).padding(.top, 30)
                         
                         LazyVGrid(columns: [GridItem(.adaptive(minimum: 80), spacing: 20)], spacing: 20) {
                             ForEach(interests) { interest in
@@ -105,17 +105,42 @@ struct InterestSelectionView: View {
                 Spacer()
                 HStack {
                     Spacer()
-                    NavigatingButtonView(
-                        style: 0,
-                        text: "Continuar",
-                        color: selectedInterests.count > 3 ? .liverpoolPink : .gray,
-                        destination: TermsAndConditionsView(),
-                        hasNavigation: selectedInterests.count > 3
-                    )
-                    .disabled(selectedInterests.count <= 3)
+                    
+                    VStack()
+                    {
+                        NavigatingButtonView(
+                            style: 0,
+                            text: "Continuar",
+                            color: selectedInterests.count > 3 ? .liverpoolPink : .gray,
+                            destination: TermsAndConditionsView(),
+                            hasNavigation: selectedInterests.count > 3,
+                            foregroundCol: .white
+                        )
+                        .disabled(selectedInterests.count <= 3)
+                        
+                        NavigatingButtonView(
+                            style: 3,
+                            text: "skip",
+                            color: .gray.opacity(0),
+                            destination: TermsAndConditionsView(),
+                            hasNavigation: true,
+                            foregroundCol: Color.gray
+                        )
+                        
+                        
+                        //funny
+//                        Text("|").rotationEffect(.degrees(90)).offset(x:20 ,y: -15).font(.largeTitle).foregroundColor(Color.gray).padding(.all, -20).fontWidth(.condensed)
+                        
+                        
+                    }
+                    
+                    
+                    
+                    
+                    
                     Spacer()
                 }
-                .padding(.bottom, 30)
+                .padding(.bottom, -20)
             }
         }
         .navigationBarBackButtonHidden(true)
