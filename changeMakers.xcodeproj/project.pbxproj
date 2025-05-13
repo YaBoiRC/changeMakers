@@ -70,6 +70,11 @@
 			path = NavigationalButton;
 			sourceTree = "<group>";
 		};
+		FBEC426B2DD2F64A00DC3801 /* Liverpool */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Liverpool;
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +105,7 @@
 		397284EA2DCF04B800627270 = {
 			isa = PBXGroup;
 			children = (
+				FBEC426B2DD2F64A00DC3801 /* Liverpool */,
 				FBEC41682DD2CB1000DC3801 /* NavigationalButton */,
 				FBEC41672DD2CAE000DC3801 /* Screens */,
 				FBEC41322DD2C66800DC3801 /* TabViews */,
@@ -144,6 +150,7 @@
 				FBEC41322DD2C66800DC3801 /* TabViews */,
 				FBEC41672DD2CAE000DC3801 /* Screens */,
 				FBEC41682DD2CB1000DC3801 /* NavigationalButton */,
+				FBEC426B2DD2F64A00DC3801 /* Liverpool */,
 			);
 			name = changeMakers;
 			packageProductDependencies = (
@@ -431,20 +438,23 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"changeMakers/Preview Content\"";
-				DEVELOPMENT_TEAM = V3624N3CCV;
+				DEVELOPMENT_TEAM = 534FGD64GF;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Nuestra nueva funcionalidad diseñada sólo para ti requiere esta función";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Nuestra app requiere permisos de localización";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = raychavez.changeMakers;
+				PRODUCT_BUNDLE_IDENTIFIER = diegotamez.changeMakers;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -460,20 +470,23 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"changeMakers/Preview Content\"";
-				DEVELOPMENT_TEAM = V3624N3CCV;
+				DEVELOPMENT_TEAM = 534FGD64GF;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Nuestra nueva funcionalidad diseñada sólo para ti requiere esta función";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Nuestra app requiere permisos de localización";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = raychavez.changeMakers;
+				PRODUCT_BUNDLE_IDENTIFIER = diegotamez.changeMakers;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

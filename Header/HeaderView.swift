@@ -64,6 +64,13 @@ struct HeaderView: View {
                                 .font(.title2).bold()
                                 .offset(y: -5)
                         }
+                        else if (self.index == 4)
+                        {
+                            //Savings
+                            Text("Map").foregroundColor(Color.white)
+                                .font(.title2).bold()
+                                .offset(y: -5)
+                        }
                         Spacer(minLength: 0)
                     }
                     Spacer(minLength: 0)
