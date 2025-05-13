@@ -13,7 +13,7 @@ struct Intro1View: View {
         VStack
         {
             
-            Text("¿Que es Liverpool Here?")
+            Text("¿Qué es Liverpool Here?")
                 .padding(.vertical, 40)
                 .frame(minWidth: 0, maxWidth: .infinity)
                 .background(Color.liverpoolPink)
@@ -24,16 +24,22 @@ struct Intro1View: View {
                 .offset(y: -27.9)
             //.shadow(radius: 10, y: 1)
             
-            Text("¿Has pensado que es dificil encontrar lo que quieres en un mar de productos?")
-                .font(.custom("AvenirNext-Bold", size: 20))
+            Text("¿Te has sentido abrumado buscando productos en un mar de opciones?")
+                .font(.system(size: 22, weight: .semibold, design: .rounded))
                 .multilineTextAlignment(.leading)
                 .padding(.top, 20).foregroundStyle(Color.liverpoolPink).padding(.horizontal)
             
-            
-            Text("\n¡Pasa unos cortos checks de preferencias y verificacion para tener un servicio personalizado y eficiente en todas tus compras fisicas!")
+            Text("\nLiverpool Here simplifica tu experiencia filtrando tus intereses para ofrecerte recomendaciones personalizadas.")
                 .font(.system(size: 17, weight: .regular, design: .rounded))
                                     .foregroundColor(.primary)
                                     .multilineTextAlignment(.leading).padding(.horizontal)
+            
+            
+            Text("\nPasa unos rápidos pasos de preferencia y verificación. Obtén un servicio eficiente y personalizado en todas tus compras físicas y en línea.")
+                .font(.system(size: 16, weight: .regular, design: .rounded))
+                                    .foregroundColor(.black.opacity(0.7))
+                                    .multilineTextAlignment(.leading)
+                                    .padding(.horizontal)
             
             
             
@@ -48,7 +54,7 @@ struct Intro1View: View {
             
             //.resizable()
             
-            Text("Encuentra lo que amas, mas rapido!")
+            Text("¡Encuentra lo que amas, más rápido!")
                 .font(.system(size: 18, weight: .semibold, design: .rounded))
                                 .foregroundColor(.liverpoolPink)
                                 .padding(.bottom, 40)
