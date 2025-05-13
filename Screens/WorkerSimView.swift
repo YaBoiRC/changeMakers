@@ -16,31 +16,18 @@ struct WorkerSimView: View {
     
     //Cambiar para preview :3
     @State private var showIntroSheet = false
-    
-    let LiverpoolPink = Color(
-        red:   208.0/255.0,
-        green:  51.0/255.0,
-        blue:  152.0/255.0
-    )
-    
+
     var body: some View {
         
         
         NavigationView{
             VStack(spacing: 0)
             {
-                HeaderView(index: index, name: "Juanito", backArrow: false, sendDashboard: false)
-                
-                
-                
+                WorkerHeader()
                 
                 Text("Hola")
                 
-                
-                
                 Spacer()
-                
-                
                 
                 Button("Boton A Intro!",
                        action:
@@ -49,7 +36,7 @@ struct WorkerSimView: View {
                         }
                 ).frame(width: 300, height: 50)
                     .foregroundStyle(.white)
-                    .background(LiverpoolPink)
+                    .background(Color.liverpoolPink)
                     .cornerRadius(4)
                     .sheet(isPresented: $showIntroSheet){IntroSwipeView()}
                 
@@ -57,6 +44,32 @@ struct WorkerSimView: View {
         }
         
         
+    }
+}
+
+// Componente HeaderView
+struct WorkerHeader: View {
+    
+    var body: some View
+    {
+        ZStack {
+            VStack {
+                HStack(spacing: 12) {
+                    Spacer()
+                    Text("Mapa")
+                        .font(.title2)
+                        .foregroundColor(Color.white)
+                        .bold()
+                    Spacer()
+                }
+                .padding(.horizontal, 16)
+                .padding(.top)
+
+                Spacer(minLength: 0)
+            }
+        }
+        .background(Color.liverpoolPink)
+        .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 12)
     }
 }
 

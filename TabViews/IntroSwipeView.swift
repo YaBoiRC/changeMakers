@@ -9,11 +9,6 @@ import SwiftUI
 
 struct IntroSwipeView: View {
     
-    let LiverpoolPink = Color(
-        red:   208.0/255.0,
-        green:  51.0/255.0,
-        blue:  152.0/255.0
-    )
     var body: some View {
         
         TabView {
@@ -34,7 +29,7 @@ struct IntroSwipeView: View {
             )//Button
             .frame(width: 300, height: 50)
             .foregroundStyle(.white)
-            .background(LiverpoolPink)
+            .background(Color.liverpoolPink)
             .cornerRadius(4)
             
             
@@ -49,8 +44,8 @@ struct IntroSwipeView: View {
             )//Button
             
             .frame(width: 300, height: 50)
-            .foregroundStyle(LiverpoolPink)
-            .border(LiverpoolPink, width: 1)
+            .foregroundStyle(Color.liverpoolPink)
+            .border(Color.liverpoolPink, width: 1)
             
             
            

@@ -25,7 +25,7 @@ struct MapView: View {
 
     var body: some View {
         VStack {
-            HeaderView(index: 4, name: "Juanito", backArrow: false, sendDashboard: false)
+            MapHeader()
 
             NavigationView {
                 ScrollView(showsIndicators: false) {
@@ -90,6 +90,31 @@ struct MapView: View {
     }
 
     
+}
+
+// Componente HeaderView
+struct MapHeader: View {
+    
+    var body: some View{
+        ZStack {
+            VStack {
+                HStack(spacing: 12) {
+                    Spacer()
+                    Text("Mapa")
+                        .font(.title2)
+                        .foregroundColor(Color.white)
+                        .bold()
+                    Spacer()
+                }
+                .padding(.horizontal, 16)
+                .padding(.top)
+
+                Spacer(minLength: 0)
+            }
+        }
+        .background(Color.liverpoolPink)
+        .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 12)
+    }
 }
 
 func openInAppleMaps(item: AnnotationItem) {

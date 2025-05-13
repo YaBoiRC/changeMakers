@@ -14,12 +14,11 @@ struct LargeHeader: View {
     @State var index: Int
     @Environment(\.presentationMode) var presentation
     @State var myView: AnyView = AnyView(HomeView())
-    
-    let LiverpoolPink = Color(
-        red:   208.0/255.0,
-        green:  51.0/255.0,
-        blue:  152.0/255.0
-    )
+    @State var textSub: String
+    @State var textHeadline: String
+    @State var subFontSize: CGFloat = 20
+    @State var headlineFontSize: CGFloat = 34
+
     
     var body: some View{
         ZStack {
@@ -32,16 +31,16 @@ struct LargeHeader: View {
                         {
                             HStack {
                                 VStack(alignment: .leading) {
-                                    Text("Que te interesa...")
-                                        .font(.system(.title, design: .serif))
+                                    Text(textSub)
+                                        .font(.system(size: subFontSize, design: .serif))
                                         .foregroundColor(Color.white)
-                                    Text("comprar?")
-                                        .font(.system(.largeTitle, design: .serif))
+                                    Text(textHeadline)
+                                        .font(.system(size: headlineFontSize, design: .serif))
                                         .foregroundColor(Color.white)
                                         .bold()
                                 }
                                 .opacity(showText ? 1 : 0)
-                                .offset(y: showText ? 0 : 10)
+                                .offset(y: showText ? 0 : 125)
                                 .animation(.easeOut(duration: 1.0), value: showText)
                                 Spacer()
                             }
@@ -53,7 +52,7 @@ struct LargeHeader: View {
                 }
                 .padding(.top)
             }
-            .background(LiverpoolPink)
+            .background(Color.liverpoolPink)
             .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 7)
             .overlay
             {
@@ -64,10 +63,12 @@ struct LargeHeader: View {
             showText = true
         }
         // Change this in order to affect the space between the other screens and the header when called
-        Spacer(minLength: 25)
+        Spacer(minLength: 1)
     }
 }
 
 #Preview{
-    LargeHeader(index: 1)
+    NavigationView{
+        InterestSelectionView()
+    }
 }

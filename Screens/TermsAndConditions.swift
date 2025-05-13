@@ -11,37 +11,17 @@ struct TermsAndConditionsView: View
 {
     @State private var conditions = false
     @State private var notifications = false
-    @State var index = 3
+    @State var index = 1
     @State var backArrow : Bool = false
     @Environment(\.presentationMode) var presentation
-    
-    let LiverpoolPink = Color(
-        red:   208.0/255.0,
-        green:  51.0/255.0,
-        blue:  152.0/255.0
-    )
-    
     
     var body: some View
     {
         VStack(spacing: 0) {
             
-            if (presentation.wrappedValue.isPresented)
-            {
-                HeaderView(index: index, name: "Juanito", backArrow: true, sendDashboard: false)
-            }
-            else
-            {
-                HeaderView(index: index, name: "Juanito", backArrow: false, sendDashboard: false)
-            }
+            LargeHeader(index: 1, textSub: "Encuentra lo que buscas con...", textHeadline: "Liverpool Here")
             
             ScrollView {
-                Text("Encuentra lo que buscas en Liverpool Here     ").font(.body).fontWeight(.bold).multilineTextAlignment(.leading).foregroundColor(.gray).padding(.bottom, 1)
-                
-                Text("Liverpool Here                   ")
-                    .font(.largeTitle)
-                    .fontWeight(.bold)
-                    .multilineTextAlignment(.leading).foregroundColor(LiverpoolPink).padding(.bottom)
                 Spacer()
                 Text("""
             Ahora puedes activar la **Vinculación de Tarjetas**, una funcionalidad que te permite asociar tu tarjeta de crédito con tu cuenta de cheques. 
@@ -100,6 +80,8 @@ struct TermsAndConditionsView: View
             
         }.frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(Color.gray.opacity(0.1))
+            .navigationBarBackButtonHidden(true)
+            .navigationBarItems(leading: CustomBackButton(arrowColor: Color.white))
     }
 }
 

@@ -63,4 +63,3 @@ struct NavigatingButtonView<Destination: View>: View
         }
     }
 }
-

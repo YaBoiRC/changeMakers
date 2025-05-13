@@ -12,38 +12,66 @@ struct HomeView: View
     var bannerActive: Bool = true
     @State var index = 1
     @State var backArrow : Bool = false
+    @State private var searchText: String = ""
     @Environment(\.presentationMode) var presentation
-    
-    //Cambiar para preview :3
-    @State private var showIntroSheet = false
-    
-    let LiverpoolPink = Color(
-        red:   208.0/255.0,
-        green:  51.0/255.0,
-        blue:  152.0/255.0
-    )
     
     var body: some View
     {
-        NavigationView{
+        NavigationView
+        {
             VStack(spacing: 0)
             {
-                HeaderView(index: index, name: "Juanito", backArrow: false, sendDashboard: false)
-                
-                
-                Button("Boton A Intro!",
-                       action:
-                        {
-                    showIntroSheet = true
-                        }
-                ).frame(width: 300, height: 50)
-                    .foregroundStyle(.white)
-                    .background(LiverpoolPink)
-                    .cornerRadius(4)
-                    .sheet(isPresented: $showIntroSheet){IntroSwipeView()}
+                HomeHeader(searchText: $searchText)
+                Spacer()
+                VStack{
+                    if !searchText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
+                        Text("Searching for: \(searchText)")
+                    }
+                }
                 
             }
         }
+    }
+}
+
+// Componente HeaderView
+struct HomeHeader: View {
+    @Binding var searchText: String
+    
+    var body: some View{
+        ZStack {
+            VStack {
+                HStack(spacing: 12) {
+                    TextField("Buscar...", text: $searchText)
+                        .padding(10)
+                        .background(Color.white)
+                        .cornerRadius(8)
+                        .layoutPriority(1)
+
+                    Button(action: {
+                        // Wishlist action
+                    }) {
+                        Image(systemName: "heart.fill")
+                            .foregroundColor(.white)
+                            .font(.title2)
+                    }
+
+                    Button(action: {
+                        // Cart action
+                    }) {
+                        Image(systemName: "cart.fill")
+                            .foregroundColor(.white)
+                            .font(.title2)
+                    }
+                }
+                .padding(.horizontal, 16)
+                .padding(.top)
+
+                Spacer(minLength: 0)
+            }
+        }
+        .background(Color.liverpoolPink)
+        .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 12)
     }
 }
 
