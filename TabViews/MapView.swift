@@ -31,7 +31,7 @@ struct MapView: View {
                 ScrollView(showsIndicators: false) {
                     VStack(spacing: 20) {
                         Text("Liverpool cerca de ti")
-                            .font(.title).bold().padding(.top).padding(.bottom, 5).foregroundStyle(Color.liverpoolPink)
+                            .font(.title).bold().padding(.top).padding(.bottom, 5).foregroundStyle(Color.black)
                         
                         NearbyMapView(
                             viewModel: regionVM,
@@ -69,7 +69,6 @@ struct MapView: View {
         .sheet(isPresented: $isSheetPresented) {
             if let selected = selectedAnnotation {
                 AnnotationDetailView(annotation: selected)
-                    .presentationDetents([.medium, .large])
                     .presentationDragIndicator(.visible)
             }
         }

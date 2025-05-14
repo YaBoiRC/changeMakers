@@ -119,13 +119,13 @@ struct HomeView: View {
                 Text("Categorías")
             }
 
-            // ——————— CARRITO ———————
+            // ——————— Mapa ———————
             NavigationView {
-                WishlistView()
+                MapView()
             }
             .tabItem {
-                Image(systemName: "cart.fill")
-                Text("Carrito")
+                Image(systemName: "location.fill")
+                Text("Nearby")
             }
 
             // ——————— PERFIL ———————

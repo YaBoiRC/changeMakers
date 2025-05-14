@@ -9,6 +9,7 @@ import SwiftUI
 import MapKit
 import Contacts
 
+
 struct AnnotationDetailView: View {
     let annotation: AnnotationItem
     
@@ -22,45 +23,13 @@ struct AnnotationDetailView: View {
         ScrollView {
             VStack(alignment: .leading, spacing: 16) {
                 
-                // 1. Imagen de la sucursal
-                if let url = annotation.imageURL {
-                    AsyncImage(url: url) { phase in
-                        switch phase {
-                        case .empty:
-                            ZStack {
-                                Rectangle()
-                                    .fill(Color.gray.opacity(0.1))
-                                    .frame(height: 200)
-                                    .cornerRadius(12)
-                                ProgressView()
-                            }
-                            
-                        case .success(let image):
-                            image
-                                .resizable()
-                                .scaledToFill()
-                                .frame(maxWidth: .infinity, minHeight: 200)
-                                .clipped()
-                                .cornerRadius(12)
-                            
-                        case .failure(_):
-                            ZStack {
-                                Rectangle()
-                                    .fill(Color.gray.opacity(0.1))
-                                    .frame(height: 200)
-                                    .cornerRadius(12)
-                                Image(systemName: "photo")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 80, height: 80)
-                                    .foregroundColor(.gray)
-                            }
-                            
-                        @unknown default:
-                            EmptyView()
-                        }
-                    }
-                }
+                // 1. Imagen de la sucursal (local asset)
+                Image("LiverpoolZapopannn")
+                    .resizable()
+                    .scaledToFill()
+                    .frame(maxWidth: .infinity, minHeight: 200)
+                    .clipped()
+                    .cornerRadius(12)
 
                 // 2. Datos textuales
                 Text(annotation.name)
