@@ -1,13 +1,5 @@
 //
-//  WishlistRow.swift
-//  changeMakers
-//
-//  Created by Alumno on 13/05/25.
-//
-
-
-//
-//  WishlistRow.swift
+//  WishListRowVendor.swift
 //  changeMakers
 //
 //  Created by Alumno on 13/05/25.
@@ -15,10 +7,7 @@
 
 import SwiftUI
 
-
-
-
-struct WishlistRow: View {
+struct WishlistRowVendor: View {
     
     var itemName = String()
     var itemDetail_1 = String()
@@ -101,29 +90,14 @@ struct WishlistRow: View {
                     Spacer()
                     
                     
-                    Button("Comprar ahora",
+                    
+                    Button("Ver información de producto",
                            action:
                             {
                         
                             }
                     )//Button
-                    .frame(width: 150, height: 40)
-                    .foregroundStyle(Color.liverpoolPink)
-                    .border(Color.liverpoolPink, width: 1)
-
-                    
-                    
-                    
-                    
-                    
-                    
-                    Button("Agregar al carrito",
-                           action:
-                            {
-                        
-                            }
-                    )//Button
-                    .frame(width: 150, height: 40)
+                    .frame(width: 250, height: 40)
                     .foregroundStyle(.white)
                     .background(Color.liverpoolPink)
                     .cornerRadius(4)
@@ -147,8 +121,4 @@ struct WishlistRow: View {
             
 
     }
-}
-
-#Preview {
-    WishlistView()
 }
