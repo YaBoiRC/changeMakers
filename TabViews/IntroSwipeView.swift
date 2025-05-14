@@ -10,48 +10,32 @@ import SwiftUI
 struct IntroSwipeView: View {
     
     var body: some View {
-        
-        TabView {
+        NavigationView {
+            VStack {
+                TabView {
                     Intro1View()
                     Intro2View()
                 }
                 .tabViewStyle(PageTabViewStyle(indexDisplayMode: .automatic))
-        VStack //   HSTACK BOTONES
-        {
-            
-            
-            
-            Button("Activar → ",
-                   action:
-                    {
-                
+
+                VStack {
+                    NavigationLink(destination: TermsAndConditionsView()) {
+                        Text("Activar → ")
+                            .frame(width: 300, height: 50)
+                            .foregroundStyle(.white)
+                            .background(Color.liverpoolPink)
+                            .cornerRadius(4)
                     }
-            )//Button
-            .frame(width: 300, height: 50)
-            .foregroundStyle(.white)
-            .background(Color.liverpoolPink)
-            .cornerRadius(4)
-            
-            
-            
-            
-            
-            Button("Regresar",
-                   action:
-                    {
-                
-                    }
-            )//Button
-            
-            .frame(width: 300, height: 50)
-            .foregroundStyle(Color.liverpoolPink)
-            .border(Color.liverpoolPink, width: 1)
-            
-            
-           
-            
-        }//    HSTACK BOTONES
-        
+
+                    Button("Regresar", action: {
+                        // Back action (can be customized)
+                    })
+                    .frame(width: 300, height: 50)
+                    .foregroundStyle(Color.liverpoolPink)
+                    .border(Color.liverpoolPink, width: 1)
+                }
+            }
+        }
     }
 }
 

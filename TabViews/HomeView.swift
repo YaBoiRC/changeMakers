@@ -139,6 +139,8 @@ struct HomeView: View {
             }
         }
         .accentColor(.liverpoolPink)
+        .navigationBarBackButtonHidden(true)
+        .navigationBarHidden(true)
     }
 }
 

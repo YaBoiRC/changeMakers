@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		3972896B2DD33C3A00627270 /* ReturnButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3972896A2DD33C3A00627270 /* ReturnButton.swift */; };
 		3972896D2DD33CAB00627270 /* ColorPalettes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3972896C2DD33CAB00627270 /* ColorPalettes.swift */; };
+		3993AA172DD4200B00BACE4E /* DistanceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3993AA162DD4200B00BACE4E /* DistanceHelper.swift */; };
+		3993AA182DD4200B00BACE4E /* Location.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 3993AA152DD4200B00BACE4E /* Location.gpx */; };
+		3993AA1B2DD4202E00BACE4E /* liverpoolLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 3993AA192DD4202E00BACE4E /* liverpoolLogo.png */; };
+		3993AA1C2DD4202E00BACE4E /* shoppingBags.png in Resources */ = {isa = PBXBuildFile; fileRef = 3993AA1A2DD4202E00BACE4E /* shoppingBags.png */; };
 		FB0DD6AA2DD3E8E000F66B03 /* Customer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB0DD6A92DD3E8DD00F66B03 /* Customer.swift */; };
 		FB0DD6AC2DD3E92200F66B03 /* NotificationBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB0DD6AB2DD3E91800F66B03 /* NotificationBanner.swift */; };
 		FB0DD6AE2DD3FB5100F66B03 /* CustomerDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB0DD6AD2DD3FB4C00F66B03 /* CustomerDetailView.swift */; };
@@ -42,6 +46,10 @@
 		3972850D2DCF04BA00627270 /* changeMakersUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = changeMakersUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3972896A2DD33C3A00627270 /* ReturnButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReturnButton.swift; sourceTree = "<group>"; };
 		3972896C2DD33CAB00627270 /* ColorPalettes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPalettes.swift; sourceTree = "<group>"; };
+		3993AA152DD4200B00BACE4E /* Location.gpx */ = {isa = PBXFileReference; lastKnownFileType = text; path = Location.gpx; sourceTree = "<group>"; };
+		3993AA162DD4200B00BACE4E /* DistanceHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistanceHelper.swift; sourceTree = "<group>"; };
+		3993AA192DD4202E00BACE4E /* liverpoolLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = liverpoolLogo.png; sourceTree = "<group>"; };
+		3993AA1A2DD4202E00BACE4E /* shoppingBags.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shoppingBags.png; sourceTree = "<group>"; };
 		FB0DD6A92DD3E8DD00F66B03 /* Customer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Customer.swift; sourceTree = "<group>"; };
 		FB0DD6AB2DD3E91800F66B03 /* NotificationBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationBanner.swift; sourceTree = "<group>"; };
 		FB0DD6AD2DD3FB4C00F66B03 /* CustomerDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerDetailView.swift; sourceTree = "<group>"; };
@@ -146,6 +154,10 @@
 		397284EA2DCF04B800627270 = {
 			isa = PBXGroup;
 			children = (
+				3993AA192DD4202E00BACE4E /* liverpoolLogo.png */,
+				3993AA1A2DD4202E00BACE4E /* shoppingBags.png */,
+				3993AA152DD4200B00BACE4E /* Location.gpx */,
+				3993AA162DD4200B00BACE4E /* DistanceHelper.swift */,
 				FB0DD7932DD41D7500F66B03 /* BannerServiceView.swift */,
 				FB0DD6AD2DD3FB4C00F66B03 /* CustomerDetailView.swift */,
 				FB0DD6AB2DD3E91800F66B03 /* NotificationBanner.swift */,
@@ -307,6 +319,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3993AA1B2DD4202E00BACE4E /* liverpoolLogo.png in Resources */,
+				3993AA1C2DD4202E00BACE4E /* shoppingBags.png in Resources */,
+				3993AA182DD4200B00BACE4E /* Location.gpx in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -335,6 +350,7 @@
 				FBEC438A2DD335AE00DC3801 /* RegionViewModel.swift in Sources */,
 				FBEC43802DD321BF00DC3801 /* NearbyMapView.swift in Sources */,
 				3972896D2DD33CAB00627270 /* ColorPalettes.swift in Sources */,
+				3993AA172DD4200B00BACE4E /* DistanceHelper.swift in Sources */,
 				FB0DD7942DD41D7500F66B03 /* BannerServiceView.swift in Sources */,
 				FB0DD6AC2DD3E92200F66B03 /* NotificationBanner.swift in Sources */,
 				FB0DD6AE2DD3FB5100F66B03 /* CustomerDetailView.swift in Sources */,

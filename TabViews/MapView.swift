@@ -5,9 +5,9 @@
 //  Created by Alumno on 12/05/25.
 //
 
-
 import SwiftUI
 import MapKit
+import UserNotifications
 
 struct MapView: View {
     @StateObject private var locationManager = CustomLocationManager()
@@ -31,7 +31,7 @@ struct MapView: View {
                 ScrollView(showsIndicators: false) {
                     VStack(spacing: 20) {
                         Text("Liverpool cerca de ti")
-                            .font(.title).bold().padding(.top).padding(.bottom, 5).foregroundStyle(Color.black)
+                            .font(.title).bold().padding(.top).padding(.bottom, 5).foregroundStyle(Color.liverpoolPink)
                         
                         NearbyMapView(
                             viewModel: regionVM,
@@ -59,16 +59,21 @@ struct MapView: View {
                     }
                 }
                 .onReceive(locationManager.$location) { loc in
-                    guard let loc = loc, !initialRegionSet else { return }
-                    regionVM.region.center = loc.coordinate
-                    initialRegionSet = true
+                    guard let loc = loc else { return }
+                    print("Ubicacion: \(loc.coordinate.latitude), \(loc.coordinate.longitude)")
                     fetchNearby(at: loc.coordinate)
+                    UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
+                        if let error = error {
+                            print("Error de permisos: \(error.localizedDescription)")
+                        }
+                    }
                 }
             }
         }
         .sheet(isPresented: $isSheetPresented) {
             if let selected = selectedAnnotation {
                 AnnotationDetailView(annotation: selected)
+                    .presentationDetents([.medium, .large])
                     .presentationDragIndicator(.visible)
             }
         }
@@ -86,15 +91,65 @@ struct MapView: View {
         
     }
     
+    // PARA HACER QUE EL GPS SE MUEVE Y VER LOS NOTIFICACIONES VAS A IR A LO SIG:
+    // Product > Scheme > Edit Scheme > Default Location > Location.gpx > Corre el programa y sal del app durante la seccion de Mapa
     
     private func fetchNearby(at coord: CLLocationCoordinate2D) {
         showNearby(category: "Liverpool", at: coord) { results in
             nearbyAnnotations = results
+            
+            var wasInside = false
+            for item in results {
+                let distance = item.coordinate.distance(from: coord)
+                let isInside = distance < 1000
+
+                if isInside && !wasInside {
+                    print("Ha entrado del rango \(item.name)")
+                } else if !isInside && wasInside {
+                    print("Ha salido del rango \(item.name)")
+                }
+
+                wasInside = isInside
+            }
+            
+            if let nearby = results.first(where: {
+                $0.coordinate.distance(from: coord) < 1000
+            }) {
+                sendIncentiveNotification(for: nearby)
+            }
         }
     }
 }
 
-    
+private func sendIncentiveNotification(for item: AnnotationItem) {
+    let content = UNMutableNotificationContent()
+    content.title = "¡Hay una sucursal cerca de ti!"
+    content.body = "Visita la sucursal \(item.name) y compra lo que necesitas!"
+    content.sound = .default
+
+    if let imageURL = Bundle.main.url(forResource: "shoppingBags", withExtension: "png") {
+        do {
+            let attachment = try UNNotificationAttachment(identifier: "image", url: imageURL, options: nil)
+            content.attachments = [attachment]
+        } catch {
+            print("Error attaching image: \(error.localizedDescription)")
+        }
+    } else {
+        print("liverpoolLogo.png not found in bundle — proceeding without image.")
+    }
+
+    let request = UNNotificationRequest(
+        identifier: UUID().uuidString,
+        content: content,
+        trigger: UNTimeIntervalNotificationTrigger(timeInterval: 10, repeats: false)
+    )
+
+    UNUserNotificationCenter.current().add(request) { error in
+        if let error = error {
+            print("Falla de la notificación: \(error.localizedDescription)")
+        }
+    }
+}
 
 
 // Componente HeaderView
@@ -132,5 +187,3 @@ func openInAppleMaps(item: AnnotationItem) {
 #Preview {
     MapView()
 }
-
-

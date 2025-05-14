@@ -106,7 +106,7 @@ struct InterestSelectionView: View {
                     style: 0,
                     text: "Continuar",
                     color: selectedInterests.count > 3 ? .liverpoolPink : .gray,
-                    destination: TermsAndConditionsView(),
+                    destination: HomeView(),
                     hasNavigation: selectedInterests.count > 3,
                     foregroundCol: .white
                 )
