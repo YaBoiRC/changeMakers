@@ -9,7 +9,7 @@
 import SwiftUI
 
 // MARK: - Datos de ejemplo
-let promoImages = ["promo2", "promo3", "promo1"]
+let promoImages = ["LiverpoolHereLogoTest", "promo2", "promo3"]
 let categories: [Interest] = [
     Interest(name: "Ropa", imageName: "tshirt"),
     Interest(name: "Electrónicos", imageName: "ipad"),
@@ -33,11 +33,12 @@ let products = [
 // MARK: - Vista Raíz con Tab Bar
 struct HomeView: View {
     @State private var searchText = ""
-
+    
     var body: some View {
         TabView {
             // ——————— INICIO ———————
             NavigationView {
+                
                 VStack(spacing: 0) {
                     HomeHeader(searchText: $searchText)
 
