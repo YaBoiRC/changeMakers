@@ -1,3 +1,4 @@
+
 //
 //  HomeView.swift
 //  changeMakers
@@ -34,6 +35,8 @@ let products = [
 struct HomeView: View {
     @State private var searchText = ""
     
+    @State private var isSheetPresented: Bool = false
+    
     var body: some View {
         TabView {
             // ——————— INICIO ———————
@@ -55,6 +58,24 @@ struct HomeView: View {
                         }
                         .tabViewStyle(PageTabViewStyle(indexDisplayMode: .automatic))
                         .frame(height: 180)
+                        
+                        //BOTON INTRO
+                        
+                        Button {
+                            isSheetPresented = true
+                        } label: {
+                            Label("Try Liverpool Here!", systemImage: "chevron.right")
+                                .frame(width: UIScreen.main.bounds.width - 20, height: 40)
+                                .foregroundStyle(.white)
+                                .fontWeight(.bold)
+                                .background(Color.liverpoolPink)
+                                .cornerRadius(4)
+                        }
+                        .padding(.top, 10)
+                        
+                        .sheet(isPresented: $isSheetPresented) {
+                            IntroSwipeView()
+                        }
 
                         // 2. Sección de categorías
                         ScrollView(.horizontal, showsIndicators: false) {
@@ -117,7 +138,7 @@ struct HomeView: View {
             }
             .tabItem {
                 Image(systemName: "square.grid.2x2.fill")
-                Text("Categorías")
+                Text("Vendedor")
             }
 
             // ——————— Mapa ———————
@@ -189,5 +210,6 @@ struct HomeHeader: View {
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         HomeView()
+    
     }
 }

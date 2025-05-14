@@ -63,6 +63,7 @@ struct InterestSelectionView: View {
         Interest(name: "Cocina", imageName: "fork.knife")
     ]
     
+    @State private var showFullHome = false
     @State var selectedInterests: Set<Interest> = []
     
     var body: some View {
@@ -106,7 +107,14 @@ struct InterestSelectionView: View {
                     style: 0,
                     text: "Continuar",
                     color: selectedInterests.count > 3 ? .liverpoolPink : .gray,
-                    destination: HomeView(),
+                    destination: HereSetupDone()
+                        .fullScreenCover(isPresented: $showFullHome) {
+                        HomeView()
+                    },
+                    
+                    
+                    
+                    
                     hasNavigation: selectedInterests.count > 3,
                     foregroundCol: .white
                 )

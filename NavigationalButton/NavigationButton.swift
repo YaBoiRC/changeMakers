@@ -102,8 +102,4 @@ struct NavigatingButtonView<Destination: View>: View
 }
 
 
-#Preview {
-    NavigationView{
-        InterestSelectionView()
-    }
-}
+

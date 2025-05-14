@@ -67,8 +67,4 @@ struct LargeHeader: View {
     }
 }
 
-#Preview{
-    NavigationView{
-        InterestSelectionView()
-    }
-}
+

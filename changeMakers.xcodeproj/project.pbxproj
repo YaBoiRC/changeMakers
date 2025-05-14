@@ -17,6 +17,7 @@
 		FB0DD6AC2DD3E92200F66B03 /* NotificationBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB0DD6AB2DD3E91800F66B03 /* NotificationBanner.swift */; };
 		FB0DD6AE2DD3FB5100F66B03 /* CustomerDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB0DD6AD2DD3FB4C00F66B03 /* CustomerDetailView.swift */; };
 		FB0DD7942DD41D7500F66B03 /* BannerServiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB0DD7932DD41D7500F66B03 /* BannerServiceView.swift */; };
+		FB2F3D4A2DD432040046D48B /* NavigationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2F3D492DD432040046D48B /* NavigationManager.swift */; };
 		FBEC43802DD321BF00DC3801 /* NearbyMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBEC437F2DD321B800DC3801 /* NearbyMapView.swift */; };
 		FBEC43822DD321D400DC3801 /* SucursalRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBEC43812DD321CE00DC3801 /* SucursalRow.swift */; };
 		FBEC438A2DD335AE00DC3801 /* RegionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBEC43892DD335A600DC3801 /* RegionViewModel.swift */; };
@@ -54,6 +55,7 @@
 		FB0DD6AB2DD3E91800F66B03 /* NotificationBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationBanner.swift; sourceTree = "<group>"; };
 		FB0DD6AD2DD3FB4C00F66B03 /* CustomerDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerDetailView.swift; sourceTree = "<group>"; };
 		FB0DD7932DD41D7500F66B03 /* BannerServiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerServiceView.swift; sourceTree = "<group>"; };
+		FB2F3D492DD432040046D48B /* NavigationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationManager.swift; sourceTree = "<group>"; };
 		FBEC437F2DD321B800DC3801 /* NearbyMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyMapView.swift; sourceTree = "<group>"; };
 		FBEC43812DD321CE00DC3801 /* SucursalRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SucursalRow.swift; sourceTree = "<group>"; };
 		FBEC43892DD335A600DC3801 /* RegionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionViewModel.swift; sourceTree = "<group>"; };
@@ -154,6 +156,7 @@
 		397284EA2DCF04B800627270 = {
 			isa = PBXGroup;
 			children = (
+				FB2F3D492DD432040046D48B /* NavigationManager.swift */,
 				3993AA192DD4202E00BACE4E /* liverpoolLogo.png */,
 				3993AA1A2DD4202E00BACE4E /* shoppingBags.png */,
 				3993AA152DD4200B00BACE4E /* Location.gpx */,
@@ -350,6 +353,7 @@
 				FBEC438A2DD335AE00DC3801 /* RegionViewModel.swift in Sources */,
 				FBEC43802DD321BF00DC3801 /* NearbyMapView.swift in Sources */,
 				3972896D2DD33CAB00627270 /* ColorPalettes.swift in Sources */,
+				FB2F3D4A2DD432040046D48B /* NavigationManager.swift in Sources */,
 				3993AA172DD4200B00BACE4E /* DistanceHelper.swift in Sources */,
 				FB0DD7942DD41D7500F66B03 /* BannerServiceView.swift in Sources */,
 				FB0DD6AC2DD3E92200F66B03 /* NotificationBanner.swift in Sources */,
