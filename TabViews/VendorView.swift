@@ -13,7 +13,7 @@ struct VendorView: View {
     @State private var currentCustomer: Customer? = nil
     @State private var isShowingDetail = false
 
-    private let vendorTimer = Timer.publish(every: 3, on: .main, in: .common).autoconnect()
+    private let vendorTimer = Timer.publish(every: 5, on: .main, in: .common).autoconnect()
     private let incrementTimer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
 
     @State private var waitingList: [Customer] = [
